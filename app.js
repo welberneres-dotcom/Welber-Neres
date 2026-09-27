@@ -41,6 +41,14 @@ function router(route) {
         return;
     }
 
+    // Suporte para rota detalhada de Projetos Arduino (ex: arduino-proj_ard_01 ou arduino-ard-01)
+    if (route.startsWith('arduino-')) {
+        const projectId = route.replace('arduino-', '');
+        main.innerHTML = renderArduinoProjectDetailPage(projectId);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+    }
+
     // Atualiza links ativos no menu
     document.querySelectorAll('.nav-link').forEach(link => {
         link.classList.remove('active');
@@ -60,8 +68,8 @@ function router(route) {
             main.innerHTML = renderCategoryPage('NXT', 'LEGO MINDSTORMS NXT', 'Projetos clássicos utilizando o bloco LEGO NXT.');
             break;
         case 'avulsos':
-            main.innerHTML = renderAvulsosPage();
-            break
+            main.innerHTML = renderCategoryPage('AVULSOS', 'PROJETOS AVULSOS', 'Construções, mecanismos independentes e desafios práticos de robótica.');
+            break;
         case 'arduino':
             main.innerHTML = renderCategoryPage('Arduino', 'ARDUINO', 'Projetos eletrônicos, automação e robótica livre.');
             break;
@@ -356,6 +364,163 @@ function renderHomePage() {
 }
 
 // --------------------------------------------------------------------------
+// RENDERIZADOR UNIVERSAL DE CATEGORIAS (EV3, NXT, AVULSOS E ARDUINO)
+// --------------------------------------------------------------------------
+
+function renderCategoryPage(catKey, title, subtitle) {
+    const projects = (typeof ROBOTEC_DB !== 'undefined' && ROBOTEC_DB.projects) 
+        ? ROBOTEC_DB.projects.filter(p => p.categoria === catKey) 
+        : [];
+
+    const isArduino = catKey === 'Arduino';
+
+    return `
+        <div class="container fade-in" style="width: 90%; max-width: 1400px; margin: 40px auto;">
+            <h2 class="section-title">${title}</h2>
+            <p class="section-subtitle">${subtitle}</p>
+
+            ${catKey === 'MATERIAIS RECICLÁVEIS' ? `
+                <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid var(--success-green); padding: 20px; border-radius: var(--radius-md); margin-bottom: 40px;">
+                    <i class="fa-solid fa-leaf" style="color: var(--success-green); font-size: 1.5rem;"></i>
+                    <strong>Destaque em Sustentabilidade:</strong> "Transformando materiais que seriam descartados em soluções criativas para aprender robótica."
+                </div>
+            ` : ''}
+
+            <div class="projects-grid">
+                ${projects.length > 0 ? projects.map(p => `
+                    <div class="project-card">
+                        <div class="project-thumb">
+                            <img src="${p.imagem}" alt="${p.nome}" onerror="this.src='https://via.placeholder.com/300x200?text=Projeto+Robotec'">
+                            <span class="project-badge">${p.dificuldade}</span>
+                        </div>
+                        <div class="project-body">
+                            <h3 class="project-title">${p.nome}</h3>
+                            <p class="project-desc">${p.descricao}</p>
+                            
+                            <div class="project-meta">
+                                ${p.pecas_aprox ? `<span><i class="fa-solid fa-puzzle-piece"></i> ~${p.pecas_aprox} peças</span>` : ''}
+                                ${p.componentes ? `<span><i class="fa-solid fa-microchip"></i> ${p.componentes.length || p.componentes} itens</span>` : ''}
+                                ${p.materiais ? `<span><i class="fa-solid fa-recycle"></i> Reutilizável</span>` : ''}
+                            </div>
+
+                            ${isArduino ? `
+                                <button class="btn btn-primary btn-block" onclick="router('arduino-${p.id}')">
+                                    <i class="fa-solid fa-microchip"></i> VER PROJETO
+                                </button>
+                            ` : `
+                                <button class="btn btn-primary btn-block" onclick="openManualViewer('${p.manual_id}')">
+                                    <i class="fa-solid fa-file-pdf"></i> VER MANUAL
+                                </button>
+                            `}
+                        </div>
+                    </div>
+                `).join('') : '<p>Nenhum projeto encontrado nesta categoria.</p>'}
+            </div>
+        </div>
+    `;
+}
+
+// --------------------------------------------------------------------------
+// PÁGINA DETALHADA DO PROJETO ARDUINO
+// --------------------------------------------------------------------------
+
+function renderArduinoProjectDetailPage(projectId) {
+    let list = [];
+    if (typeof ROBOTEC_DB !== 'undefined') {
+        list = ROBOTEC_DB.arduino_projects || ROBOTEC_DB.projects.filter(p => p.categoria === 'Arduino');
+    }
+
+    // Busca o projeto pelo ID exato ou pela terminação numérica do ID
+    const p = list.find(item => item.id === projectId || item.id === `proj_${projectId}` || item.id.endsWith(projectId)) || list[0];
+
+    if (!p) return `<div class="container text-center" style="padding: 50px;"><h2>Projeto Arduino não encontrado.</h2></div>`;
+
+    return `
+    <div class="arduino-page-container" style="max-width: 1200px; margin: 20px auto; padding: 20px;">
+        <button class="btn btn-secondary btn-sm" onclick="router('arduino')" style="margin-bottom: 20px;">
+            <i class="fa-solid fa-arrow-left"></i> VOLTAR PARA OS PROJETOS ARDUINO
+        </button>
+
+        <div class="project-title-banner" style="background-color: #0284c7; color: #fff; text-align: center; padding: 12px 20px; border-radius: 8px; margin-bottom: 20px;">
+            <h2 style="margin: 0; font-size: 1.8rem;">${p.numero || '01'}. ${p.nome}</h2>
+        </div>
+
+        <div class="project-intro-row" style="display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 25px;">
+            <p style="flex: 1; font-size: 1.1rem; line-height: 1.6; margin: 0; color: #334155;">${p.introducao || p.descricao}</p>
+            <div class="difficulty-card" style="background: #fff; border: 2px solid #cbd5e1; border-radius: 12px; padding: 15px 30px; text-align: center; min-width: 200px;">
+                <span style="display: block; font-size: 0.8rem; font-weight: 700; color: #0d1b2a; margin-bottom: 5px;">● NÍVEL DE DIFICULDADE</span>
+                <span style="font-size: 1.3rem; font-weight: 800; color: #16a34a;">${p.dificuldade}</span>
+            </div>
+        </div>
+
+        <div class="arduino-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+            <div class="info-blocks-col" style="display: flex; flex-direction: column; gap: 15px;">
+                <div class="info-card" style="background: #fff; border: 2px solid #16a34a; border-radius: 12px; overflow: hidden;">
+                    <div style="background: #16a34a; color: #fff; font-weight: 800; padding: 8px 15px;"><i class="fa-solid fa-bullseye"></i> OBJETIVO</div>
+                    <div style="padding: 15px;"><p style="margin: 0;">${p.objetivo || 'Aprender conceitos de automação e eletrônica.'}</p></div>
+                </div>
+
+                <div class="info-card" style="background: #fff; border: 2px solid #0284c7; border-radius: 12px; overflow: hidden;">
+                    <div style="background: #0284c7; color: #fff; font-weight: 800; padding: 8px 15px;"><i class="fa-solid fa-microchip"></i> COMPONENTES / PEÇAS</div>
+                    <div style="padding: 15px;">
+                        <ul style="margin: 0; padding-left: 20px;">${(p.componentes || []).map(c => `<li>${c}</li>`).join('')}</ul>
+                    </div>
+                </div>
+
+                <div class="info-card" style="background: #fff; border: 2px solid #06b6d4; border-radius: 12px; overflow: hidden;">
+                    <div style="background: #06b6d4; color: #fff; font-weight: 800; padding: 8px 15px;"><i class="fa-solid fa-link"></i> LIGAÇÕES</div>
+                    <div style="padding: 15px;">
+                        <ul style="margin: 0; padding-left: 20px;">${(p.ligacoes || []).map(l => `<li>${l}</li>`).join('')}</ul>
+                    </div>
+                </div>
+
+                <div class="info-card" style="background: #fff; border: 2px solid #eab308; border-radius: 12px; overflow: hidden;">
+                    <div style="background: #eab308; color: #fff; font-weight: 800; padding: 8px 15px;"><i class="fa-solid fa-gear"></i> COMO FUNCIONA</div>
+                    <div style="padding: 15px;"><p style="margin: 0;">${p.como_funciona || 'O circuito opera conforme o código gravado na placa.'}</p></div>
+                </div>
+            </div>
+
+            <div class="diagram-col" style="display: flex; flex-direction: column; gap: 15px;">
+                <div class="diagram-box" style="background: #fff; border: 2px solid #06b6d4; border-radius: 12px; overflow: hidden;">
+                    <div style="background: #06b6d4; color: #fff; font-weight: 800; padding: 10px 15px;"><i class="fa-solid fa-link"></i> ESQUEMA DE LIGAÇÃO</div>
+                    <div style="padding: 15px; text-align: center;">
+                        <img src="${p.esquema_imagem || p.imagem}" alt="${p.nome}" style="max-width: 100%; height: auto;" onerror="this.src='https://via.placeholder.com/500x300?text=Esquema+Arduino'">
+                    </div>
+                </div>
+
+                <button onclick="toggleCodeSection()" style="width: 100%; background: #fff; border: 2px solid #cbd5e1; border-radius: 12px; padding: 15px 25px; font-size: 1.3rem; font-weight: 900; color: #0f172a; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+                    <span>PROGRAMAÇÃO</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+
+                <div id="codePanel" style="display: none; background: #0d1b2a; border-radius: 12px; border: 2px solid #0284c7; overflow: hidden;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; background: #1e293b; padding: 10px 20px; color: #38bdf8; font-weight: 700; font-size: 0.85rem;">
+                        <span><i class="fa-solid fa-code"></i> CÓDIGO FONTE (ARDUINO C++)</span>
+                        <button onclick="copyArduinoCode()" style="background: #0284c7; color: #fff; border: none; padding: 5px 12px; border-radius: 6px; cursor: pointer;">Copiar</button>
+                    </div>
+                    <pre style="margin: 0; padding: 20px; color: #f8fafc; font-family: monospace; overflow-x: auto;"><code id="arduinoCodeText">${p.codigo || '// Código C++ de exemplo'}</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    `;
+}
+
+function toggleCodeSection() {
+    const panel = document.getElementById('codePanel');
+    if (panel) {
+        panel.style.display = (panel.style.display === 'none' || panel.style.display === '') ? 'block' : 'none';
+    }
+}
+
+function copyArduinoCode() {
+    const codeText = document.getElementById('arduinoCodeText').innerText;
+    navigator.clipboard.writeText(codeText).then(() => {
+        alert('Código Arduino copiado!');
+    });
+}
+
+// --------------------------------------------------------------------------
 // RENDERIZADOR DETALHADO DA METODOLOGIA DE TRABALHO
 // --------------------------------------------------------------------------
 
@@ -496,51 +661,6 @@ function renderMetodologiaDetalhePage(item) {
                         VOLTAR À HOME
                     </button>
                 </div>
-            </div>
-        </div>
-    `;
-}
-
-function renderCategoryPage(catKey, title, subtitle) {
-    const projects = (typeof ROBOTEC_DB !== 'undefined' && ROBOTEC_DB.projects) 
-        ? ROBOTEC_DB.projects.filter(p => p.categoria === catKey) 
-        : [];
-
-    return `
-        <div class="container fade-in" style="width: 90%; max-width: 1400px; margin: 40px auto;">
-            <h2 class="section-title">${title}</h2>
-            <p class="section-subtitle">${subtitle}</p>
-
-            ${catKey === 'MATERIAIS RECICLÁVEIS' ? `
-                <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid var(--success-green); padding: 20px; border-radius: var(--radius-md); margin-bottom: 40px;">
-                    <i class="fa-solid fa-leaf" style="color: var(--success-green); font-size: 1.5rem;"></i>
-                    <strong>Destaque em Sustentabilidade:</strong> "Transformando materiais que seriam descartados em soluções criativas para aprender robótica."
-                </div>
-            ` : ''}
-
-            <div class="projects-grid">
-                ${projects.length > 0 ? projects.map(p => `
-                    <div class="project-card">
-                        <div class="project-thumb">
-                            <img src="${p.imagem}" alt="${p.nome}">
-                            <span class="project-badge">${p.dificuldade}</span>
-                        </div>
-                        <div class="project-body">
-                            <h3 class="project-title">${p.nome}</h3>
-                            <p class="project-desc">${p.descricao}</p>
-                            
-                            <div class="project-meta">
-                                ${p.pecas_aprox ? `<span><i class="fa-solid fa-puzzle-piece"></i> ~${p.pecas_aprox} peças</span>` : ''}
-                                ${p.componentes ? `<span><i class="fa-solid fa-microchip"></i> ${p.componentes.length} itens</span>` : ''}
-                                ${p.materiais ? `<span><i class="fa-solid fa-recycle"></i> Reutilizável</span>` : ''}
-                            </div>
-
-                            <button class="btn btn-primary btn-block" onclick="openManualViewer('${p.manual_id}')">
-                                <i class="fa-solid fa-file-pdf"></i> VER MANUAL
-                            </button>
-                        </div>
-                    </div>
-                `).join('') : '<p>Nenhum projeto encontrado nesta categoria.</p>'}
             </div>
         </div>
     `;
@@ -981,51 +1101,6 @@ function renderConhecaRobotecPage() {
                         VOLTAR À HOME
                     </button>
                 </div>
-            </div>
-        </div>
-    `;
-}
-// --------------------------------------------------------------------------
-// RENDERIZADOR DA PÁGINA "AVULSOS" (15 ESPAÇOS DE PROJETOS)
-// --------------------------------------------------------------------------
-
-function renderAvulsosPage() {
-    // Array com 15 itens/placeholders para os projetos avulsos
-    const avulsosProjects = Array.from({ length: 15 }, (_, i) => ({
-        id: i + 1,
-        nome: `Projeto Avulso ${i + 1}`,
-        descricao: `Descrição do projeto avulso ${i + 1}. Espaço reservado para documentação e guias de construção.`,
-        dificuldade: i % 3 === 0 ? 'Fácil' : i % 3 === 1 ? 'Médio' : 'Avançado',
-        imagem: `img/galeria/foto${(i % 4) + 1}.jpg`, // Caminho padrão de imagem
-        pecas: 120 + i * 15
-    }));
-
-    return `
-        <div class="container fade-in" style="width: 90%; max-width: 1400px; margin: 40px auto;">
-            <h2 class="section-title">PROJETOS AVULSOS</h2>
-            <p class="section-subtitle">Construções, mecanismos independentes e desafios práticos de robótica</p>
-
-            <div class="projects-grid">
-                ${avulsosProjects.map(p => `
-                    <div class="project-card">
-                        <div class="project-thumb">
-                            <span class="project-badge">${p.dificuldade}</span>
-                        </div>
-                        <div class="project-body">
-                            <h3 class="project-title">${p.nome}</h3>
-                            <p class="project-desc">${p.descricao}</p>
-                            
-                            <div class="project-meta">
-                                <span><i class="fa-solid fa-puzzle-piece"></i> ~${p.pecas} peças</span>
-                                <span><i class="fa-solid fa-folder-open"></i> Avulso</span>
-                            </div>
-
-                            <button class="btn btn-primary btn-block" onclick="alert('Em breve: Manual do ${p.nome}')">
-                                <i class="fa-solid fa-file-pdf"></i> VER MANUAL
-                            </button>
-                        </div>
-                    </div>
-                `).join('')}
             </div>
         </div>
     `;
