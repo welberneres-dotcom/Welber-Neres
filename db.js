@@ -28,7 +28,7 @@ const ROBOTEC_DB = {
 
     // 2. Projetos e Construções
     projects: [
-        // ==================== EV3 (51 PROJETOS) ====================
+        // ==================== EV3 (50 PROJETOS) ====================
         {
             id: "proj_01",
             nome: "AEROGERADOR",
@@ -73,7 +73,6 @@ const ROBOTEC_DB = {
             manual_id: "man_04",
             destaque: false
         },
-   
         {
             id: "proj_05",
             nome: "BALANÇO",
@@ -134,7 +133,7 @@ const ROBOTEC_DB = {
             nome: "CACHORRO ADESTRADO",
             categoria: "EV3",
             descricao: "Projeto que explora movimento, programação e interação por meio da robótica.",
-            dificuldade: "Interemediário",
+            dificuldade: "Intermediário",
             pecas_aprox: 150,
             imagem: "img/ev3/cachorro adestrado.png",
             manual_id: "man_11",
@@ -354,7 +353,7 @@ const ROBOTEC_DB = {
             nome: "JIPE LUNAR",
             categoria: "EV3",
             descricao: "Projeto que trabalha exploração, movimento, mecânica e tecnologia.",
-            dificuldade: "Intermedário",
+            dificuldade: "Intermediário",
             pecas_aprox: 130,
             imagem: "img/ev3/jipe lunar.png",
             manual_id: "man_30",
@@ -386,7 +385,7 @@ const ROBOTEC_DB = {
             id: "proj_33",
             nome: "LUTADOR DE BOXE",
             categoria: "EV3",
-            descricao: "Descrição do projeto 33...",
+            descricao: "Projeto interativo com braços articulados simulando um lutador de boxe.",
             dificuldade: "Avançado",
             pecas_aprox: 170,
             imagem: "img/ev3/lutador de boxe.png",
@@ -442,7 +441,7 @@ const ROBOTEC_DB = {
             nome: "PONTE ROLANTE",
             categoria: "EV3",
             descricao: "Projeto que explora elevação, deslocamento, força e automação.",
-            dificuldade: "Intermedário",
+            dificuldade: "Intermediário",
             pecas_aprox: 170,
             imagem: "img/ev3/ponte rolante.png",
             manual_id: "man_38",
@@ -452,7 +451,7 @@ const ROBOTEC_DB = {
             id: "proj_39",
             nome: "PULMÃO",
             categoria: "EV3",
-            descricao: "Construção desenvolvida para simular o movimento de inspiração e expiração do Pulmão",
+            descricao: "Construção desenvolvida para simular o movimento de inspiração e expiração do Pulmão.",
             dificuldade: "Intermediário",
             pecas_aprox: 180,
             imagem: "img/ev3/pulmao.png",
@@ -472,13 +471,13 @@ const ROBOTEC_DB = {
         },
         {
             id: "proj_41",
-            nome: "REBATEDOR DE BAISEBOL",
+            nome: "REBATEDOR DE BEISEBOL",
             categoria: "EV3",
             descricao: "Projeto que explora movimento, força, precisão e programação.",
             dificuldade: "Iniciante",
             pecas_aprox: 70,
             imagem: "img/EV3/rebatedor.png",
-            manual_id: "man_06",
+            manual_id: "man_41",
             destaque: true
         },
         {
@@ -551,7 +550,7 @@ const ROBOTEC_DB = {
             id: "proj_48",
             nome: "TRENÔ DE NEVE",
             categoria: "EV3",
-            descricao: "Descrição do projeto 48...",
+            descricao: "Projeto simulando tração e locomoção em superfícies lisas.",
             dificuldade: "Avançado",
             pecas_aprox: 250,
             imagem: "img/ev3/treno.png",
@@ -846,7 +845,8 @@ const ROBOTEC_DB = {
             manual_id: "man_nxt_24",
             destaque: false
         },
-        // =====================15 PROJETOS AVULSOS=======================
+
+        // ===================== PROJETOS AVULSOS =======================
         {
             id: "avulso-1",
             nome: "BAILARINA",
@@ -899,310 +899,230 @@ const ROBOTEC_DB = {
         },
         {
             id: "avulso-6",
-            nome: "Projeto Avulso 6",
+            nome: "CARRO DE MÃO 1",
             categoria: "AVULSOS",
-            dificuldade: "Avançado",
-            descricao: "Descrição do projeto avulso 6.",
-            imagem: "img/avulsos/projeto6.png",
-            pecas_aprox: 200,
+            dificuldade: "Intermediário",
+            descricao: "Construção simples que estimula a coordenação motora, criatividade e percepção de movimento.",
+            imagem: "img/avulsos/carrodemao1.png",
+            pecas_aprox: 60,
             manual_id: "m_avulso_6"
         },
         {
             id: "avulso-7",
-            nome: "Projeto Avulso 7",
+            nome: "CARRO DE MÃO 2",
             categoria: "AVULSOS",
             dificuldade: "Iniciante",
-            descricao: "Descrição do projeto avulso 7.",
-            imagem: "img/avulsos/projeto7.png",
-            pecas_aprox: 95,
+            descricao: "Construção simples que estimula a coordenação motora, criatividade e percepção de movimento.",
+            imagem: "img/avulsos/carrodemao2.png",
+            pecas_aprox: 45,
             manual_id: "m_avulso_7"
         },
         {
             id: "avulso-8",
-            nome: "Projeto Avulso 8",
+            nome: "CARRO 1",
             categoria: "AVULSOS",
-            dificuldade: "Intermediário",
-            descricao: "Descrição do projeto avulso 8.",
-            imagem: "img/avulsos/projeto8.png",
-            pecas_aprox: 160,
+            dificuldade: "Iniciante",
+            descricao: "Construção que explora movimento, direção e imaginação de forma lúdica.",
+            imagem: "img/avulsos/carro1.png",
+            pecas_aprox: 53,
             manual_id: "m_avulso_8"
         },
         {
             id: "avulso-9",
-            nome: "Projeto Avulso 9",
+            nome: "CARRO 2",
             categoria: "AVULSOS",
-            dificuldade: "Avançado",
-            descricao: "Descrição do projeto avulso 9.",
-            imagem: "img/avulsos/projeto9.png",
-            pecas_aprox: 210,
+            dificuldade: "Iniciante",
+            descricao: "Construção que estimula a criatividade, coordenação motora e exploração do movimento.",
+            imagem: "img/avulsos/carro2.png",
+            pecas_aprox: 32,
             manual_id: "m_avulso_9"
         },
         {
             id: "avulso-10",
-            nome: "Projeto Avulso 10",
+            nome: "CATAPULTA",
             categoria: "AVULSOS",
             dificuldade: "Iniciante",
-            descricao: "Descrição do projeto avulso 10.",
-            imagem: "img/avulsos/projeto10.png",
-            pecas_aprox: 105,
+            descricao: "Construção que apresenta, de forma lúdica, conceitos de força, movimento e lançamento.",
+            imagem: "img/avulsos/catapulta.png",
+            pecas_aprox: 52,
             manual_id: "m_avulso_10"
         },
         {
             id: "avulso-11",
-            nome: "Projeto Avulso 11",
+            nome: "DRAGSTER",
             categoria: "AVULSOS",
-            dificuldade: "Intermediário",
-            descricao: "Descrição do projeto avulso 11.",
-            imagem: "img/avulsos/projeto11.png",
-            pecas_aprox: 130,
+            dificuldade: "Iniciante",
+            descricao: "Construção simples que explora movimento, velocidade, direção e criatividade de forma lúdica.",
+            imagem: "img/avulsos/dragster.png",
+            pecas_aprox: 35,
             manual_id: "m_avulso_11"
         },
         {
             id: "avulso-12",
-            nome: "Projeto Avulso 12",
+            nome: "GARRA",
             categoria: "AVULSOS",
-            dificuldade: "Avançado",
-            descricao: "Descrição do projeto avulso 12.",
-            imagem: "img/avulsos/projeto12.png",
-            pecas_aprox: 190,
+            dificuldade: "Iniciante",
+            descricao: "Construção simples que estimula a coordenação motora, movimento e criatividade.",
+            imagem: "img/avulsos/garra.png",
+            pecas_aprox: 60,
             manual_id: "m_avulso_12"
         },
         {
             id: "avulso-13",
-            nome: "Projeto Avulso 13",
+            nome: "MOTO",
             categoria: "AVULSOS",
             dificuldade: "Iniciante",
-            descricao: "Descrição do projeto avulso 13.",
-            imagem: "img/avulsos/projeto13.png",
+            descricao: "Construção que explora movimento, equilíbrio e imaginação de forma lúdica.",
+            imagem: "img/avulsos/moto.png",
             pecas_aprox: 115,
             manual_id: "m_avulso_13"
         },
         {
             id: "avulso-14",
-            nome: "Projeto Avulso 14",
+            nome: "PONTE",
             categoria: "AVULSOS",
             dificuldade: "Intermediário",
-            descricao: "Descrição do projeto avulso 14.",
-            imagem: "img/avulsos/projeto14.png",
-            pecas_aprox: 175,
+            descricao: "Construção que trabalha equilíbrio, espaço, formas e criatividade.",
+            imagem: "img/avulsos/ponte.png",
+            pecas_aprox: 200,
             manual_id: "m_avulso_14"
         },
         {
             id: "avulso-15",
-            nome: "Projeto Avulso 15",
+            nome: "RODA GIGANTE",
             categoria: "AVULSOS",
-            dificuldade: "Avançado",
-            descricao: "Descrição do projeto avulso 15.",
-            imagem: "img/avulsos/projeto15.png",
-            pecas_aprox: 220,
+            dificuldade: "Iniciante",
+            descricao: "Construção que explora movimento circular, rotação e percepção visual.",
+            imagem: "img/avulsos/rodagigante.png",
+            pecas_aprox: 80,
             manual_id: "m_avulso_15"
         },
-        // ==================== ARDUINO (20 PROJETOS) ====================      
+        {
+            id: "avulso-16",
+            nome: "VELOCIMETRO",
+            categoria: "AVULSOS",
+            dificuldade: "Iniciante",
+            descricao: "Construção que apresenta, de forma lúdica, conceitos de velocidade e movimento.",
+            imagem: "img/avulsos/velocimetro.png",
+            pecas_aprox: 60,
+            manual_id: "m_avulso_16"
+        },
+        {
+            id: "avulso-17",
+            nome: "VARA DE PESCA",
+            categoria: "AVULSOS",
+            dificuldade: "Avançado",
+            descricao: "Construção que estimula a coordenação motora, movimento e brincadeira simbólica.",
+            imagem: "img/avulsos/pesca.png",
+            pecas_aprox: 70,
+            manual_id: "m_avulso_17"
+        },
+
+        // ==================== ARDUINO ====================      
         {
             id: "proj_ard_01",
-            nome: "NOME DO PROJETO ARDUINO 01",
+            numero: "01",
+            nome: "Piscando um LED",
             categoria: "Arduino",
-            descricao: "Descrição do projeto Arduino 01...",
+            introducao: "O projeto é o 'Olá, Mundo!' da eletrônica. Ele ensina como controlar a saída digital do Arduino para ligar e desligar um LED em um intervalo regular.",
+            descricao: "Introdução à eletrônica básica e saída digital com Arduino acendendo um LED piscante.",
             dificuldade: "Iniciante",
-            imagem: "img/Arduino/projeto_ard_01.png",
+            objetivo: "Aprender os conceitos fundamentais de portas digitais, lógica de programação, circuitos elétricos e tempo de atraso (delay).",
+            componentes: [
+                "1x Placa Arduino Uno",
+                "1x LED (qualquer cor)",
+                "1x Resistor de 220 Ohms",
+                "1x Protoboard",
+                "Jumpers macho-macho"
+            ],
+            ligacoes: [
+                "Anodo do LED (Perna longa) -> Conectado ao Resistor -> Pino Digital 6 do Arduino",
+                "Catodo do LED (Perna curta) -> Conectado ao Pino GND do Arduino"
+            ],
+            como_funciona: "O código envia um sinal de ALTO (HIGH / 5V) para o pino digital 13 por 1 segundo, fazendo o LED acender, e depois envia um sinal BAIXO (LOW / 0V) por 3 segundo, apagando-o em um ciclo contínuo.",
+            esquema_imagem: "img/Arduino/led.png",
+            imagem: "img/Arduino/arduino.png",
             manual_id: "man_ard_01",
-            destaque: false
+            destaque: true,
+            codigo: `// Projeto 01 - Pisca LED
+            const int pinLED = 6; // Define o pino do LED
+
+            void setup() {
+            pinMode(pinLED, OUTPUT); // Configura o pino 13 como saída
+            }
+
+            void loop() {
+            digitalWrite(pinLED, HIGH); // Liga o LED
+            delay(3000);                // Aguarda 3 segundo
+            digitalWrite(pinLED, LOW);  // Desliga o LED
+            delay(3000);                // Aguarda 3 segundo
+            }`
         },
         {
             id: "proj_ard_02",
-            nome: "NOME DO PROJETO ARDUINO 02",
+            numero: "02",
+            nome: "Sinal de Trânsito (Semáforo)",
             categoria: "Arduino",
-            descricao: "Descrição do projeto Arduino 02...",
+            introducao: "Simulação de um sistema de semáforo de trânsito utilizando três LEDs organizados em sequência cronometrada.",
+            descricao: "Projeto para controle de múltiplos LEDs em sequência temporal utilizando estruturas de repetição e tempo.",
             dificuldade: "Iniciante",
-            imagem: "img/Arduino/projeto_ard_02.png",
+            objetivo: "Aprender a controlar múltiplas saídas digitais em sequência para simular uma aplicação prática do cotidiano.",
+            componentes: [
+                "1x Placa Arduino Uno",
+                "1x LED Vermelho",
+                "1x LED Amarelo",
+                "1x LED Verde",
+                "3x Resistores de 220 Ohms",
+                "1x Protoboard",
+                "Jumpers macho-macho"
+            ],
+            ligacoes: [
+                "LED Vermelho -> Pino Digital 12 (com resistor em série)",
+                "LED Amarelo -> Pino Digital 11 (com resistor em série)",
+                "LED Verde -> Pino Digital 10 (com resistor em série)",
+                "Catodos de todos os LEDs -> Conectados ao GND da placa"
+            ],
+            como_funciona: "O Arduino executa um loop mantendo o LED Verde aceso por 5 segundos, depois o Amarelo por 2 segundos e por fim o Vermelho por 5 segundos, repetindo o ciclo da mesma forma que um semáforo real.",
+            esquema_imagem: "img/Arduino/semaforo.png",
+            imagem: "img/Arduino/arduino.png",
             manual_id: "man_ard_02",
-            destaque: false
-        },
-        {
-            id: "proj_ard_03",
-            nome: "NOME DO PROJETO ARDUINO 03",
-            categoria: "Arduino",
-            descricao: "Descrição do projeto Arduino 03...",
-            dificuldade: "Iniciante",
-            imagem: "img/Arduino/projeto_ard_03.png",
-            manual_id: "man_ard_03",
-            destaque: false
-        },
-        {
-            id: "proj_ard_04",
-            nome: "NOME DO PROJETO ARDUINO 04",
-            categoria: "Arduino",
-            descricao: "Descrição do projeto Arduino 04...",
-            dificuldade: "Iniciante",
-            imagem: "img/Arduino/projeto_ard_04.png",
-            manual_id: "man_ard_04",
-            destaque: false
-        },
-        {
-            id: "proj_ard_05",
-            nome: "NOME DO PROJETO ARDUINO 05",
-            categoria: "Arduino",
-            descricao: "Descrição do projeto Arduino 05...",
-            dificuldade: "Iniciante",
-            imagem: "img/Arduino/projeto_ard_05.png",
-            manual_id: "man_ard_05",
-            destaque: false
-        },
-        {
-            id: "proj_ard_06",
-            nome: "NOME DO PROJETO ARDUINO 06",
-            categoria: "Arduino",
-            descricao: "Descrição do projeto Arduino 06...",
-            dificuldade: "Iniciante",
-            imagem: "img/Arduino/projeto_ard_06.png",
-            manual_id: "man_ard_06",
-            destaque: false
-        },
-        {
-            id: "proj_ard_07",
-            nome: "NOME DO PROJETO ARDUINO 07",
-            categoria: "Arduino",
-            descricao: "Descrição do projeto Arduino 07...",
-            dificuldade: "Iniciante",
-            imagem: "img/Arduino/projeto_ard_07.png",
-            manual_id: "man_ard_07",
-            destaque: false
-        },
-        {
-            id: "proj_ard_08",
-            nome: "NOME DO PROJETO ARDUINO 08",
-            categoria: "Arduino",
-            descricao: "Descrição do projeto Arduino 08...",
-            dificuldade: "Iniciante",
-            imagem: "img/Arduino/projeto_ard_08.png",
-            manual_id: "man_ard_08",
-            destaque: false
-        },
-        {
-            id: "proj_ard_09",
-            nome: "NOME DO PROJETO ARDUINO 09",
-            categoria: "Arduino",
-            descricao: "Descrição do projeto Arduino 09...",
-            dificuldade: "Iniciante",
-            imagem: "img/Arduino/projeto_ard_09.png",
-            manual_id: "man_ard_09",
-            destaque: false
-        },
-        {
-            id: "proj_ard_10",
-            nome: "NOME DO PROJETO ARDUINO 10",
-            categoria: "Arduino",
-            descricao: "Descrição do projeto Arduino 10...",
-            dificuldade: "Iniciante",
-            imagem: "img/Arduino/projeto_ard_10.png",
-            manual_id: "man_ard_10",
-            destaque: false
-        },
-        {
-            id: "proj_ard_11",
-            nome: "NOME DO PROJETO ARDUINO 11",
-            categoria: "Arduino",
-            descricao: "Descrição do projeto Arduino 11...",
-            dificuldade: "Iniciante",
-            imagem: "img/Arduino/projeto_ard_11.png",
-            manual_id: "man_ard_11",
-            destaque: false
-        },
-        {
-            id: "proj_ard_12",
-            nome: "NOME DO PROJETO ARDUINO 12",
-            categoria: "Arduino",
-            descricao: "Descrição do projeto Arduino 12...",
-            dificuldade: "Iniciante",
-            imagem: "img/Arduino/projeto_ard_12.png",
-            manual_id: "man_ard_12",
-            destaque: false
-        },
-        {
-            id: "proj_ard_13",
-            nome: "NOME DO PROJETO ARDUINO 13",
-            categoria: "Arduino",
-            descricao: "Descrição do projeto Arduino 13...",
-            dificuldade: "Iniciante",
-            imagem: "img/Arduino/projeto_ard_13.png",
-            manual_id: "man_ard_13",
-            destaque: false
-        },
-        {
-            id: "proj_ard_14",
-            nome: "NOME DO PROJETO ARDUINO 14",
-            categoria: "Arduino",
-            descricao: "Descrição do projeto Arduino 14...",
-            dificuldade: "Iniciante",
-            imagem: "img/Arduino/projeto_ard_14.png",
-            manual_id: "man_ard_14",
-            destaque: false
-        },
-        {
-            id: "proj_ard_15",
-            nome: "NOME DO PROJETO ARDUINO 15",
-            categoria: "Arduino",
-            descricao: "Descrição do projeto Arduino 15...",
-            dificuldade: "Iniciante",
-            imagem: "img/Arduino/projeto_ard_15.png",
-            manual_id: "man_ard_15",
-            destaque: false
-        },
-        {
-            id: "proj_ard_16",
-            nome: "NOME DO PROJETO ARDUINO 16",
-            categoria: "Arduino",
-            descricao: "Descrição do projeto Arduino 16...",
-            dificuldade: "Iniciante",
-            imagem: "img/Arduino/projeto_ard_16.png",
-            manual_id: "man_ard_16",
-            destaque: false
-        },
-        {
-            id: "proj_ard_17",
-            nome: "NOME DO PROJETO ARDUINO 17",
-            categoria: "Arduino",
-            descricao: "Descrição do projeto Arduino 17...",
-            dificuldade: "Iniciante",
-            imagem: "img/Arduino/projeto_ard_17.png",
-            manual_id: "man_ard_17",
-            destaque: false
-        },
-        {
-            id: "proj_ard_18",
-            nome: "NOME DO PROJETO ARDUINO 18",
-            categoria: "Arduino",
-            descricao: "Descrição do projeto Arduino 18...",
-            dificuldade: "Iniciante",
-            imagem: "img/Arduino/projeto_ard_18.png",
-            manual_id: "man_ard_18",
-            destaque: false
-        },
-        {
-            id: "proj_ard_19",
-            nome: "NOME DO PROJETO ARDUINO 19",
-            categoria: "Arduino",
-            descricao: "Descrição do projeto Arduino 19...",
-            dificuldade: "Iniciante",
-            imagem: "img/Arduino/projeto_ard_19.png",
-            manual_id: "man_ard_19",
-            destaque: false
-        },
-        {
-            id: "proj_ard_20",
-            nome: "NOME DO PROJETO ARDUINO 20",
-            categoria: "Arduino",
-            descricao: "Descrição do projeto Arduino 20...",
-            dificuldade: "Iniciante",
-            imagem: "img/Arduino/projeto_ard_20.png",
-            manual_id: "man_ard_20",
-            destaque: false
+            destaque: false,
+            codigo: `// Projeto 02 - Semáforo
+const int ledVerde = 10;
+const int ledAmarelo = 11;
+const int ledVermelho = 12;
+
+void setup() {
+  pinMode(ledVerde, OUTPUT);
+  pinMode(ledAmarelo, OUTPUT);
+  pinMode(ledVermelho, OUTPUT);
+}
+
+void loop() {
+  // Estado Verde
+  digitalWrite(ledVerde, HIGH);
+  digitalWrite(ledAmarelo, LOW);
+  digitalWrite(ledVermelho, LOW);
+  delay(5000);
+
+  // Estado Amarelo
+  digitalWrite(ledVerde, LOW);
+  digitalWrite(ledAmarelo, HIGH);
+  digitalWrite(ledVermelho, LOW);
+  delay(2000);
+
+  // Estado Vermelho
+  digitalWrite(ledVerde, LOW);
+  digitalWrite(ledAmarelo, LOW);
+  digitalWrite(ledVermelho, HIGH);
+  delay(5000);
+}`
         }
     ],
 
     // 3. Manuais Protegidos
     manuais: [
-        // ==================== EV3 (51 MANUAIS) ====================
+        // ==================== EV3 ====================
         {
             id: "man_01",
             projeto_id: "proj_01",
@@ -1663,17 +1583,8 @@ const ROBOTEC_DB = {
             pdf_url: "manuais/manual_50.pdf",
             paginas: ["PASSO 1: Estrutura Base."]
         },
-        {
-            id: "man_51",
-            projeto_id: "proj_51",
-            titulo: "Manual de Montagem: PROJETO 51",
-            total_paginas: 10,
-            categoria: "EV3",
-            pdf_url: "manuais/manual_51.pdf",
-            paginas: ["PASSO 1: Estrutura Base."]
-        },
 
-        // ==================== NXT (24 MANUAIS) ====================
+        // ==================== NXT ====================
         {
             id: "man_nxt_01",
             projeto_id: "proj_nxt_01",
@@ -1890,19 +1801,19 @@ const ROBOTEC_DB = {
             pdf_url: "manuais/NXT/manual_nxt_24.pdf",
             paginas: ["PASSO 1: Estrutura Base."]
         },
-         // ==================== AlVUSOS (20 MANUAIS) ====================
+
+        // ==================== AVULSOS ====================
         {
             id: "m_avulso_1",
-            projeto_id: "avulsos-1",
-            titulo: "Manual de Montagem: PROJETO NXT 24",
+            projeto_id: "avulso-1",
+            titulo: "Manual de Montagem: Bailarina",
             total_paginas: 9,
             categoria: "AVULSOS",
             pdf_url: "manuais/avulsos/bailarina.pdf",
-
+            paginas: ["PASSO 1: Estrutura Base."]
         },
 
-
-        // ==================== ARDUINO (20 MANUAIS) ====================
+        // ==================== ARDUINO ====================
         {
             id: "man_ard_01",
             projeto_id: "proj_ard_01",
@@ -1919,168 +1830,6 @@ const ROBOTEC_DB = {
             total_paginas: 10,
             categoria: "Arduino",
             pdf_url: "manuais/Arduino/manual_ard_02.pdf",
-            paginas: ["PASSO 1: Esquemático Eletrônico."]
-        },
-        {
-            id: "man_ard_03",
-            projeto_id: "proj_ard_03",
-            titulo: "Manual de Montagem: PROJETO ARDUINO 03",
-            total_paginas: 10,
-            categoria: "Arduino",
-            pdf_url: "manuais/Arduino/manual_ard_03.pdf",
-            paginas: ["PASSO 1: Esquemático Eletrônico."]
-        },
-        {
-            id: "man_ard_04",
-            projeto_id: "proj_ard_04",
-            titulo: "Manual de Montagem: PROJETO ARDUINO 04",
-            total_paginas: 10,
-            categoria: "Arduino",
-            pdf_url: "manuais/Arduino/manual_ard_04.pdf",
-            paginas: ["PASSO 1: Esquemático Eletrônico."]
-        },
-        {
-            id: "man_ard_05",
-            projeto_id: "proj_ard_05",
-            titulo: "Manual de Montagem: PROJETO ARDUINO 05",
-            total_paginas: 10,
-            categoria: "Arduino",
-            pdf_url: "manuais/Arduino/manual_ard_05.pdf",
-            paginas: ["PASSO 1: Esquemático Eletrônico."]
-        },
-        {
-            id: "man_ard_06",
-            projeto_id: "proj_ard_06",
-            titulo: "Manual de Montagem: PROJETO ARDUINO 06",
-            total_paginas: 10,
-            categoria: "Arduino",
-            pdf_url: "manuais/Arduino/manual_ard_06.pdf",
-            paginas: ["PASSO 1: Esquemático Eletrônico."]
-        },
-        {
-            id: "man_ard_07",
-            projeto_id: "proj_ard_07",
-            titulo: "Manual de Montagem: PROJETO ARDUINO 07",
-            total_paginas: 10,
-            categoria: "Arduino",
-            pdf_url: "manuais/Arduino/manual_ard_07.pdf",
-            paginas: ["PASSO 1: Esquemático Eletrônico."]
-        },
-        {
-            id: "man_ard_08",
-            projeto_id: "proj_ard_08",
-            titulo: "Manual de Montagem: PROJETO ARDUINO 08",
-            total_paginas: 10,
-            categoria: "Arduino",
-            pdf_url: "manuais/Arduino/manual_ard_08.pdf",
-            paginas: ["PASSO 1: Esquemático Eletrônico."]
-        },
-        {
-            id: "man_ard_09",
-            projeto_id: "proj_ard_09",
-            titulo: "Manual de Montagem: PROJETO ARDUINO 09",
-            total_paginas: 10,
-            categoria: "Arduino",
-            pdf_url: "manuais/Arduino/manual_ard_09.pdf",
-            paginas: ["PASSO 1: Esquemático Eletrônico."]
-        },
-        {
-            id: "man_ard_10",
-            projeto_id: "proj_ard_10",
-            titulo: "Manual de Montagem: PROJETO ARDUINO 10",
-            total_paginas: 10,
-            categoria: "Arduino",
-            pdf_url: "manuais/Arduino/manual_ard_10.pdf",
-            paginas: ["PASSO 1: Esquemático Eletrônico."]
-        },
-        {
-            id: "man_ard_11",
-            projeto_id: "proj_ard_11",
-            titulo: "Manual de Montagem: PROJETO ARDUINO 11",
-            total_paginas: 10,
-            categoria: "Arduino",
-            pdf_url: "manuais/Arduino/manual_ard_11.pdf",
-            paginas: ["PASSO 1: Esquemático Eletrônico."]
-        },
-        {
-            id: "man_ard_12",
-            projeto_id: "proj_ard_12",
-            titulo: "Manual de Montagem: PROJETO ARDUINO 12",
-            total_paginas: 10,
-            categoria: "Arduino",
-            pdf_url: "manuais/Arduino/manual_ard_12.pdf",
-            paginas: ["PASSO 1: Esquemático Eletrônico."]
-        },
-        {
-            id: "man_ard_13",
-            projeto_id: "proj_ard_13",
-            titulo: "Manual de Montagem: PROJETO ARDUINO 13",
-            total_paginas: 10,
-            categoria: "Arduino",
-            pdf_url: "manuais/Arduino/manual_ard_13.pdf",
-            paginas: ["PASSO 1: Esquemático Eletrônico."]
-        },
-        {
-            id: "man_ard_14",
-            projeto_id: "proj_ard_14",
-            titulo: "Manual de Montagem: PROJETO ARDUINO 14",
-            total_paginas: 10,
-            categoria: "Arduino",
-            pdf_url: "manuais/Arduino/manual_ard_14.pdf",
-            paginas: ["PASSO 1: Esquemático Eletrônico."]
-        },
-        {
-            id: "man_ard_15",
-            projeto_id: "proj_ard_15",
-            titulo: "Manual de Montagem: PROJETO ARDUINO 15",
-            total_paginas: 10,
-            categoria: "Arduino",
-            pdf_url: "manuais/Arduino/manual_ard_15.pdf",
-            paginas: ["PASSO 1: Esquemático Eletrônico."]
-        },
-        {
-            id: "man_ard_16",
-            projeto_id: "proj_ard_16",
-            titulo: "Manual de Montagem: PROJETO ARDUINO 16",
-            total_paginas: 10,
-            categoria: "Arduino",
-            pdf_url: "manuais/Arduino/manual_ard_16.pdf",
-            paginas: ["PASSO 1: Esquemático Eletrônico."]
-        },
-        {
-            id: "man_ard_17",
-            projeto_id: "proj_ard_17",
-            titulo: "Manual de Montagem: PROJETO ARDUINO 17",
-            total_paginas: 10,
-            categoria: "Arduino",
-            pdf_url: "manuais/Arduino/manual_ard_17.pdf",
-            paginas: ["PASSO 1: Esquemático Eletrônico."]
-        },
-        {
-            id: "man_ard_18",
-            projeto_id: "proj_ard_18",
-            titulo: "Manual de Montagem: PROJETO ARDUINO 18",
-            total_paginas: 10,
-            categoria: "Arduino",
-            pdf_url: "manuais/Arduino/manual_ard_18.pdf",
-            paginas: ["PASSO 1: Esquemático Eletrônico."]
-        },
-        {
-            id: "man_ard_19",
-            projeto_id: "proj_ard_19",
-            titulo: "Manual de Montagem: PROJETO ARDUINO 19",
-            total_paginas: 10,
-            categoria: "Arduino",
-            pdf_url: "manuais/Arduino/manual_ard_19.pdf",
-            paginas: ["PASSO 1: Esquemático Eletrônico."]
-        },
-        {
-            id: "man_ard_20",
-            projeto_id: "proj_ard_20",
-            titulo: "Manual de Montagem: PROJETO ARDUINO 20",
-            total_paginas: 10,
-            categoria: "Arduino",
-            pdf_url: "manuais/Arduino/manual_ard_20.pdf",
             paginas: ["PASSO 1: Esquemático Eletrônico."]
         }
     ],
@@ -2138,3 +1887,10 @@ const ROBOTEC_DB = {
     // 7. Registros de Acesso a Manuais (Auditoria de Segurança)
     acessos_logs: []
 };
+
+// Suporte para ambiente Node.js e Navegador (Browser)
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = ROBOTEC_DB;
+} else {
+    window.ROBOTEC_DB = ROBOTEC_DB;
+}
